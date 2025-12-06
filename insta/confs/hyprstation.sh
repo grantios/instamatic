@@ -50,7 +50,7 @@ export GPU_DRIVER="nvidia-lts"  # auto, nvidia, nvidia-lts, amd, intel, modesett
 # But really suggest you don't. Trying to keep as minimal as possible.
 
 # Source the station bundle for common packages
-source "$(dirname "$0")/bundles/station.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/bundles/station.sh"
 
 # Hyprland-specific packages
 EXTRA_PACKAGES+=(

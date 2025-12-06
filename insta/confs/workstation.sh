@@ -49,7 +49,7 @@ export GPU_DRIVER="auto"  # auto, nvidia, nvidia-lts, amd, intel, modesetting
 # But really suggest you don't. Trying to keep as minimal as possible.
 
 # Source the station bundle for common packages
-source "$(dirname "$0")/bundles/station.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/bundles/station.sh"
 
 # Workstation-specific packages
 EXTRA_PACKAGES+=(
