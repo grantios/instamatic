@@ -48,45 +48,18 @@ export GPU_DRIVER="nvidia-lts"  # auto, nvidia, nvidia-lts, amd, intel, modesett
 # Additional packages and services (appended to defaults)
 # Edit common.sh as-needed if you need to edit base packages
 # But really suggest you don't. Trying to keep as minimal as possible.
+
+# Source the station bundle for common packages
+source "$(dirname "$0")/bundles/station.sh"
+
+# Hyprland-specific packages
 EXTRA_PACKAGES+=(
     # Hyprland and Wayland essentials
     "hyprland" "quickshell" "wofi" "dunst" "swaybg" "alacritty"
     "wl-clipboard" "grim" "slurp" "swaylock" "swayidle"
     "xdg-desktop-portal-hyprland" "qt5-wayland" "qt6-wayland"
     "polkit-kde-agent"  # For authentication dialogs
-
-    # Multimedia and creative tools
-    "vlc" "streamlink" "yt-dlp" "mpv" "mpd"
-    "steam" "godot" "blender"
-    "krita" "kdenlive"
-    "obs-studio"
-    "obsidian" "libreoffice"
-    "blender" "lmms" "audacity" "musescore"
-
-    # Fonts and themes
-    "papirus-icon-theme" "noto-fonts" "noto-fonts-emoji"
-
-    # Networking
-    "network-manager-applet" "networkmanager"
-
-    # Audio
-    "easyeffects" "pipewire" "pipewire-alsa" "pipewire-pulse"
-
-    # Browsers and communication
-    "chromium" "firefox" "thunderbird" "signal-desktop" "element-desktop"
-
-    # Development
-    "raylib" "sdl2" "sdl2_net" "sdl2_image" "sdl2_mixer" "sdl2_ttf"
-    "qemu-full" "llvm" "lldb" "clang" "cmake" "meson" "ninja" "sbcl" "roswell" "racket" "fennel"
 )
-AUR_PACKAGES+=(
-    "papirus-folders-git" "bazaar"
-    "visual-studio-code-bin" "chez-scheme" "chibi-scheme"
-    "onlyoffice-bin" "planify" "notesnook-bin" "electronmail-bin" "steamlink"
-    "vesktop-bin" "chatterino2-bin"
-    "blockbench-bin" "sidequest-bin"
-)
-SERVICES+=" syncthing@STEIN.service"  # Uncomment to enable Syncthing user service
 
 # Boot options (appended to kernel command line)
 # export BOOT_OPTIONS="fbcon=rotate:2"

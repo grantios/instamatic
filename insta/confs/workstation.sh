@@ -47,28 +47,15 @@ export GPU_DRIVER="auto"  # auto, nvidia, nvidia-lts, amd, intel, modesetting
 # Additional packages and services (appended to defaults)
 # Edit common.sh as-needed if you need to edit base packages
 # But really suggest you don't. Trying to keep as minimal as possible.
+
+# Source the station bundle for common packages
+source "$(dirname "$0")/bundles/station.sh"
+
+# Workstation-specific packages
 EXTRA_PACKAGES+=(
-    "vlc" "streamlink" "yt-dlp" "mpv" "mpd"
-    "steam" "godot" "blender"
-    "yakuake" "krita" "kdenlive"
-    "obs-studio"
-    "obsidian" "libreoffice" 
-    "blender" "lmms" "audacity" "musescore"
-    "papirus-icon-theme" noto-fonts noto-fonts-emoji
+    "yakuake"
     "network-manager-applet" "plasma-nm" "proton-vpn-gtk-app"
-    "easyeffects" "pipewire" "pipewire-alsa" "pipewire-pulse"
-    "chromium" "firefox" "thunderbird" "signal-desktop" "element-desktop" 
-    "raylib" "sdl2" "sdl2_net" "sdl2_image" "sdl2_mixer" "sdl2_ttf"
-    "qemu-full" "llvm" "lldb" "clang" "cmake" "meson" "ninja" "sbcl" "roswell" "racket" "fennel"
 )
-AUR_PACKAGES+=(
-    "papirus-folders-git" "bazaar"
-    "visual-studio-code-bin" "chez-scheme" "chibi-scheme"
-    "onlyoffice-bin" "planify" "notesnook-bin" "electronmail-bin" "steamlink"
-    "vesktop-bin" "chatterino2-bin"
-    "blockbench-bin" "sidequest-bin"
-)
-SERVICES+=" syncthing@STEIN.service"  # Uncomment to enable Syncthing user service
 
 # Boot options (appended to kernel command line)
 # export BOOT_OPTIONS="fbcon=rotate:2"
